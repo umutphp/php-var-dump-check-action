@@ -1,14 +1,15 @@
 on: [push]
+name: "VarDump Checker"
 
 jobs:
-  hello_world_job:
+  var_dump_checker:
     runs-on: ubuntu-latest
-    name: Test Itself
+    name: Check
     steps:
     - name: Check 1
       id: check1
       uses: umutphp/php-var-dump-check-action@master
       with:
         checktype: 'none'
-        exclude: 'vendor,test'
-        extensions: 'php'
+        exclude: '.github'
+        extensions: 'md,yml,sh'
