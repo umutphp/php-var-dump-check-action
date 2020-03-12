@@ -24,9 +24,9 @@ else
 fi
 
 if [ "$CHECKTYPE" = "" ]; then
-    $COMMAND="var-dump-check --no-colors $EXCLUDE --extensions $INPUT_EXTENSIONS ."
+    COMMAND="var-dump-check --no-colors $EXCLUDE --extensions $INPUT_EXTENSIONS ."
 else
-    $COMMAND="var-dump-check --no-colors --$CHECKTYPE $EXCLUDE --extensions $INPUT_EXTENSIONS ."
+    COMMAND="var-dump-check --no-colors --$CHECKTYPE $EXCLUDE --extensions $INPUT_EXTENSIONS ."
 fi
 
 echo "$COMMAND"
