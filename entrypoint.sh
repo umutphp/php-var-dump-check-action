@@ -13,8 +13,6 @@ case $INPUT_CHECKTYPE in
     ;;
 esac
 
-
-
 if [ "$INPUT_EXCLUDE" = "" ]; then
     echo "No folder will be excluded."
     EXCLUDE=""
@@ -22,7 +20,7 @@ else
     EXCLUDE_DELIMETER_OLD=","
     EXCLUDE_DELIMETER_NEW=" --exclude "
     EXCLUDE="${INPUT_EXCLUDE//$EXCLUDE_DELIMETER_OLD/$EXCLUDE_DELIMETER_NEW}";
-    EXCLUDE="$EXCLUDE_DELIMETER$EXCLUDE"
+    EXCLUDE="$EXCLUDE_DELIMETER_NEW$EXCLUDE"
 fi
 
 if [ "$CHECKTYPE" = "" ]; then
