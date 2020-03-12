@@ -12,13 +12,3 @@ jobs:
         checktype: 'none'
         exclude: 'a,b,c'
         extensions: 'md'
-    - name: Check 2
-      id: check2
-      uses: umutphp/php-var-dump-check-action@master
-      with:
-        checktype: 'zend'
-        exclude: 'a,b,c'
-        extensions: 'php'
-    - name: Check 3
-      id: check3
-      uses: umutphp/php-var-dump-check-action@master
