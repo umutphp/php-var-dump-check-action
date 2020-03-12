@@ -29,4 +29,5 @@ else
     COMMAND="var-dump-check --no-colors --$CHECKTYPE $EXCLUDE --extensions $INPUT_EXTENSIONS /github/workspace"
 fi
 
+echo "$COMMAND"
 eval "$COMMAND"
