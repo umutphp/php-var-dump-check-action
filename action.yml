@@ -1,15 +1,23 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'PHP VarDump Check Action'
+description: 'GitHub Action for find forgotten variable dump in PHP projects.'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  checktype:  # id of input
+    description: 'The type of the VarDump. Valid values: none, ladybug, tracy, zend, doctrine, symfony, laravel'
+    required: false
+    default: 'none'
+  exclude:
+    description: 'The folders to be excluded in check.'
+    required: false
+    default: ''
+  extensions:
+    description: 'The file extensions to be checked.'
+    required: false
+    default: 'php,phpt,php7'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.checktype }}
+    - ${{ inputs.exclude }}
+    - ${{ inputs.extensions }}
