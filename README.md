@@ -1,23 +1,77 @@
 # PHP VarDump Check Action
 
-This action prints "Hello World" to the log or "Hello" + the name of a person to greet. To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
+GitHub action for PHP applications to find forgotten variable dumps. 
 
 ## Inputs
 
-### `who-to-greet`
+### `checktype`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Not Required** The type of the VarDump. Valid values: none, ladybug, tracy, zend, doctrine, symfony, laravel. Default `"none"`.
 
-## Outputs
+### `exclude`
 
-### `time`
+**Not Required** The folders to be excluded in check.
 
-The time we greeted you.
+### `extensions`
 
-## Example usage
+**Not Required** The file extensions to be checked. Default `"php,phpt,php7"`.
+
+## Example usage 1
 
 ```yaml
-uses: actions/hello-world-docker-action@master
-with:
-  who-to-greet: 'Mona the Octocat'
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Test Itself
+    steps:
+    - name: Check 1
+      id: check1
+      uses: umutphp/php-var-dump-check-action@v2
+      with:
+        checktype: 'laravel'
+        exclude: 'vendor,test'
+        extensions: 'php'
+```
+
+## Example usage 2
+
+```yaml
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Test Itself
+    steps:
+    - name: Check 1
+      id: check1
+      uses: umutphp/php-var-dump-check-action@v2
+```
+
+## Example usage 3
+
+```yaml
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Test Itself
+    steps:
+    - name: Check 1
+      id: check1
+      uses: umutphp/php-var-dump-check-action@v2
+      with:
+        checktype: 'none'
+        exclude: 'vendor,test'
+        extensions: 'php'
+    - name: Check 2
+      id: check2
+      uses: umutphp/php-var-dump-check-action@v2
+      with:
+        checktype: 'laravel'
+        exclude: 'vendor,test'
+        extensions: 'php'
 ```

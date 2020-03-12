@@ -2,7 +2,7 @@ name: 'PHP VarDump Check Action'
 description: 'GitHub Action for find forgotten variable dump in PHP projects.'
 inputs:
   checktype:  # id of input
-    description: 'The type of the VarDump. Valid values: none, ladybug, tracy, zend, doctrine, symfony, laravel'
+    description: 'The type of the VarDump. Valid values: none, ladybug, tracy, zend, doctrine, symfony, laravel.'
     required: false
     default: 'none'
   exclude:

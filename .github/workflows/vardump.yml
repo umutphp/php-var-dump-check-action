@@ -10,5 +10,5 @@ jobs:
       uses: umutphp/php-var-dump-check-action@master
       with:
         checktype: 'none'
-        exclude: 'a,b,c'
-        extensions: 'md'
+        exclude: 'vendor,test'
+        extensions: 'php'
