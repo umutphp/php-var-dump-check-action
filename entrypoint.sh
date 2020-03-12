@@ -29,4 +29,4 @@ else
     $COMMAND="var-dump-check --no-colors --$CHECKTYPE $EXCLUDE --extensions $INPUT_EXTENSIONS ."
 fi
 
-echo $COMMAND
+echo "$COMMAND"
