@@ -28,7 +28,7 @@ jobs:
     steps:
     - name: Check 1
       id: check1
-      uses: umutphp/php-var-dump-check-action@v2
+      uses: umutphp/php-var-dump-check-action@v1
       with:
         checktype: 'laravel'
         exclude: 'vendor,test'
@@ -47,7 +47,7 @@ jobs:
     steps:
     - name: Check 1
       id: check1
-      uses: umutphp/php-var-dump-check-action@v2
+      uses: umutphp/php-var-dump-check-action@v1
 ```
 
 ## Example usage 3
@@ -62,14 +62,14 @@ jobs:
     steps:
     - name: Check 1
       id: check1
-      uses: umutphp/php-var-dump-check-action@v2
+      uses: umutphp/php-var-dump-check-action@v1
       with:
         checktype: 'none'
         exclude: 'vendor,test'
         extensions: 'php'
     - name: Check 2
       id: check2
-      uses: umutphp/php-var-dump-check-action@v2
+      uses: umutphp/php-var-dump-check-action@v1
       with:
         checktype: 'laravel'
         exclude: 'vendor,test'
