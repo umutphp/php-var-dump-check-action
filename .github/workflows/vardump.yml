@@ -6,19 +6,19 @@ jobs:
     name: Test Itself
     steps:
     - name: Check 1
-      id: check
+      id: check1
       uses: umutphp/php-var-dump-check-action@master
       with:
         checktype: 'none'
         exclude: 'a,b,c'
         extensions: 'md'
     - name: Check 2
-      id: check
+      id: check2
       uses: umutphp/php-var-dump-check-action@master
       with:
         checktype: 'zend'
         exclude: 'a,b,c'
         extensions: 'php'
     - name: Check 3
-      id: check
+      id: check3
       uses: umutphp/php-var-dump-check-action@master
