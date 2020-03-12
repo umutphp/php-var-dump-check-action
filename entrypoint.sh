@@ -15,16 +15,17 @@ esac
 
 
 
-if [ "$INPUT_EXCLUDE" == "" ]; then
+if [ "$INPUT_EXCLUDE" = "" ]; then
     echo "No folder will be excluded."
     EXCLUDE=""
 else
-    EXCLUDE_DELIMETER=" --exclude "
-    EXCLUDE="${$INPUT_EXCLUDE/,/$EXCLUDE_DELIMETER}"
+    EXCLUDE_DELIMETER_OLD=","
+    EXCLUDE_DELIMETER_NEW=" --exclude "
+    EXCLUDE="${$INPUT_EXCLUDE/$EXCLUDE_DELIMETER_OLD/$EXCLUDE_DELIMETER_NEW}"
     EXCLUDE="$EXCLUDE_DELIMETER$EXCLUDE"
 fi
 
-if [ "$CHECKTYPE" == "" ]; then
+if [ "$CHECKTYPE" = "" ]; then
     $COMMAND="var-dump-check --no-colors $EXCLUDE --extensions $INPUT_EXTENSIONS ."
 else
     $COMMAND="var-dump-check --no-colors --$CHECKTYPE $EXCLUDE --extensions $INPUT_EXTENSIONS ."
