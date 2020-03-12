@@ -5,13 +5,20 @@ jobs:
     runs-on: ubuntu-latest
     name: Test Itself
     steps:
-    - name: Check
+    - name: Check 1
       id: check
       uses: umutphp/php-var-dump-check-action@master
       with:
         checktype: 'none'
         exclude: 'a,b,c'
         extensions: 'md'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+    - name: Check 2
+      id: check
+      uses: umutphp/php-var-dump-check-action@master
+      with:
+        checktype: 'zend'
+        exclude: 'a,b,c'
+        extensions: 'php'
+    - name: Check 3
+      id: check
+      uses: umutphp/php-var-dump-check-action@master
