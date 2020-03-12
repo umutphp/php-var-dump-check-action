@@ -24,9 +24,9 @@ else
 fi
 
 if [ "$CHECKTYPE" = "" ]; then
-    COMMAND="var-dump-check --no-colors $EXCLUDE --extensions $INPUT_EXTENSIONS ."
+    COMMAND="var-dump-check --no-colors $EXCLUDE --extensions $INPUT_EXTENSIONS /github/workspace"
 else
-    COMMAND="var-dump-check --no-colors --$CHECKTYPE $EXCLUDE --extensions $INPUT_EXTENSIONS ."
+    COMMAND="var-dump-check --no-colors --$CHECKTYPE $EXCLUDE --extensions $INPUT_EXTENSIONS /github/workspace"
 fi
 
 eval "$COMMAND"
